@@ -12,7 +12,7 @@ server_socket.listen(1)
 port = server_socket.getsockname()[1]
 uuid = 'f2801eef-31c3-4eb7-a95f-e635ada1fab4'
 port = 1
-client_socket = 0;
+client_socket = 0
 bluetooth.advertise_service(server_socket,"MyServer" ,service_id=uuid)
 #startServer()
 
@@ -20,10 +20,10 @@ bluetooth.advertise_service(server_socket,"MyServer" ,service_id=uuid)
 def startServer():
     try:
         client_socket,address = server_socket.accept()
-        print "Accepted connection from ",address
+        print ("Accepted connection from ",address)
         while 1:
          data = client_socket.recv(1024)
-         print "Received: %s" % data
+         print ("Received: %s" % data)
          if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
           print ("GPIO 21 LOW, LED OFF")
           GPIO.output(LED,0)
